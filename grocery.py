@@ -1,4 +1,4 @@
-import unittest
+import unittest # UI tests require a unique framework for testing
 
 class   ShopList:
       def __init__(self, grocery_store):
@@ -42,6 +42,37 @@ for item in User1.groceriess:
     print(item)
 for index3 in range(0, len(User1.groceriess)):
     print(User1.groceriess[index3])
+
+class TestGroceryApp(unittest.TestCase):
+
+    def setUp(self):
+        print("SETUP")
+        self.grocery = ShopList()
+
+    def test_add(self):
+        print("test_add")
+        result = self.grocery.add(groceries)
+        self.assertEqual("milk $1.85" , "soda $1.25", "fish $5.50" ,result)
+
+    def test_add2(self):
+        print("test_add2")
+        result = self.grocery.add2(groceries)
+        self.assertEqual("paper $2.85" , "napkins $2.25", "plate $5.50", "chips $2.42" ,result)
+
+    def test_add3(self):
+        print("test_add3")
+        result = self.grocery.add3(groceries)
+        self.assertEqual("chicken $2.85" , "beef $2.25", "eggs $5.50", "sugar $2.42", "salt $1.15" , "pepper $1.22", "honey $2.05", result)
+
+    def tearDown(self):
+        print("TEAR DOWN")
+
+
+if __name__ == '__main__':
+    unittest.main()
+
+
+    
 
 
 
